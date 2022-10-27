@@ -2,17 +2,27 @@
   "name": "xstate-typescript-template",
   "version": "1.0.0",
   "description": "You can fork this sandbox to create a reproduction for XState issues.",
-  "main": "index.html",
+  "source": "src/*",
   "scripts": {
-    "start": "parcel index.html --open",
+    "start": "parcel 'index.html' -p 21234",
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "xstate": "4.32.1"
+    "redis": "^4.2.0",
+    "xstate": "^4.4.1"
   },
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1"
+    "@xstate/inspect": "^0.7.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "parcel": "^2.7.0",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "string_decoder": "^1.3.0",
+    "typescript": "^4.8.4",
+    "url": "^0.11.0"
   },
   "keywords": []
 }

@@ -1,4 +1,6 @@
 import { createMachine, interpret } from "xstate";
+import { refundsStateMachine } from "./machines/refunds-chart";
+import { persistState } from "./state-manager";
 import "./styles.css";
 
 document.getElementById("app").innerHTML = `
@@ -34,11 +36,14 @@ const machine = createMachine<ToggleContext, ToggleEvent>({
 });
 
 // Edit your service(s) here
-const service = interpret(machine).onTransition((state) => {
+const service = interpret(refundsStateMachine).onTransition((state) => {
   console.log(state.value);
 });
 
 service.start();
 
-service.send("TOGGLE");
+service.send("refund_requested");
+var snap = service.getSnapshot();
+console.log(snap);
+persistState(123456, snap);
 service.send("TOGGLE");
